@@ -33,7 +33,7 @@ export type TBookingInfo = {
   }
 }
 
-export type BookingPlace = {
+export type TBookingPlace = {
   date: DateQuest;
   time: string;
   contactPerson: string;
