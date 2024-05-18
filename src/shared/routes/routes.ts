@@ -9,4 +9,6 @@ export enum FetchRoutes {
 
 export enum AppRoutes {
   Catalog = '/',
+  Contacts = 'contacts',
+  Reservation = 'reservation',
 }
