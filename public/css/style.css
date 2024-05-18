@@ -175,3 +175,10 @@ button,
   -webkit-clip-path: inset(100%);
   clip-path: inset(100%);
 }
+
+.container {
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 0 33px;
+}
