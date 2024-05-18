@@ -1,9 +1,9 @@
 
-function App() {
+const App = (): JSX.Element => {
 
   return (
     <>
-    <div>sdsdsd</div>
+    <div>sdsdsd55555</div>
     </>
   )
 }
