@@ -1,0 +1,25 @@
+.sort__type-item {
+  height: 40px;
+  align-self: center;
+  padding: 0 40px;
+}
+
+.sort__type-item a{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sort__type-item span {
+  font-weight: 700;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+}
+
+.sort__type-item:first-child {
+  padding-left: 0;
+}
+
+.sort__type-item:last-child {
+  padding-right: 0;
+}

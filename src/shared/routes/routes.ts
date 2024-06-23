@@ -12,3 +12,14 @@ export enum AppRoutes {
   Contacts = 'contacts',
   Reservation = 'reservation',
 }
+
+export enum FetchStatus {
+  Idle = 'idle',
+  Pending = 'loading',
+  Fulfilled = 'success',
+  Reject = 'error',
+}
+
+export enum ApiActions {
+  FetchDataQuestsList = 'data/fetchQuestsList',
+}

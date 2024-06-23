@@ -68,6 +68,13 @@ export type TUserData = {
   password: string;
 }
 
+export type TSortTypeItem = {
+  id: string;
+  name: string;
+  width: string;
+  height: string;
+}
+
 export enum QuestLevel {
   Easy = 'easy',
   Medium = 'medium',

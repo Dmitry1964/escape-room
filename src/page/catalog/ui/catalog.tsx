@@ -1,6 +1,7 @@
-import { SortType } from 'src/widgets/sort-type';
+import { SortType } from 'src/features/sort-type';
 import './catalog.css';
-import { SortLevel } from 'src/widgets/sort-type/sort-level';
+import { SortLevel } from 'src/features/sort-level';
+import { QuestCard } from 'src/widgets/quest-card';
 
 const Catalog = (): JSX.Element => {
   return (
@@ -12,6 +13,7 @@ const Catalog = (): JSX.Element => {
            <h1 className='catalog__title'>Выберите тематику</h1>
            <SortType />
            <SortLevel />
+           <QuestCard />
           </div>
         </div>
       </section>

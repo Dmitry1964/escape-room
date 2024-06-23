@@ -1,6 +1,6 @@
-import { TQuest,TQuestInfo, TBookingPlace, TAuchStatus, TBookingInfo, TUserData, TUserReservation } from './types/app-types';
-import { FetchRoutes, AppRoutes } from './routes/routes';
-import { BACKEND_URL, TIME_OUT } from './constans/constans';
+import { TQuest,TQuestInfo, TBookingPlace, TAuchStatus, TBookingInfo, TUserData, TUserReservation, TSortTypeItem } from './types/app-types';
+import { FetchRoutes, AppRoutes, FetchStatus, ApiActions } from './routes/routes';
+import { BACKEND_URL, TIME_OUT, sortLevel, sortType } from './constans/constans';
 
 export type {
   TBookingPlace,
@@ -9,7 +9,8 @@ export type {
   TQuest,
   TQuestInfo,
   TUserData,
-  TUserReservation
+  TUserReservation,
+  TSortTypeItem,
 }
 
 export {
@@ -17,4 +18,8 @@ export {
   AppRoutes,
   BACKEND_URL,
   TIME_OUT,
+  FetchStatus,
+  ApiActions,
+  sortLevel,
+  sortType,
 }
