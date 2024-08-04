@@ -1,0 +1,44 @@
+@import 'src/styles/variables';
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: auto;
+    letter-spacing: 0.03em;
+    color: $color-white-default;
+    border-radius: 47px;
+
+}
+
+.button_login {
+    background-color: transparent;
+    width: 95px;
+    height: 24px;
+    border: 1px solid $color-tangerine;
+    text-transform: uppercase;
+}
+
+.button_logout {
+    background-color: $color-tangerine;
+    width: 95px;
+    height: 24px;
+    border: none;
+    text-transform: uppercase;
+}
+
+.button_selected {
+    width: 185px;
+    height: 47px;
+    background-color: $color-tangerine2;
+    text-transform: uppercase;
+    font-weight: 800;
+    transition: background-color $transition;
+
+    &:hover {
+        background-color: $color-carrot-orange;
+    }
+}
+
