@@ -1,11 +1,13 @@
-// import Container from "src/shared/container/container";
+import Button from "src/shared/button/button";
 import Container from "src/shared/container/container";
 
 
 const Layout = () => {
     return (
         <Container>
-            skdskdksdksk
+            <header>
+                
+            </header>
         </Container>
     )
 }
