@@ -1,4 +1,5 @@
-import Container from "../../../shared/container/container";
+// import Container from "src/shared/container/container";
+import Container from "src/shared/container/container";
 
 
 const Layout = () => {
