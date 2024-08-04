@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import reactLogo from 'src/assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.scss'
 
@@ -26,7 +26,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        Click 444444555
+        Click 44444
       </p>
     </>
   )
