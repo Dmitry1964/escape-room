@@ -4,8 +4,6 @@
 
 :root {
     font-family: "Raleway", Arial, sans-serif;
-    color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
     background: linear-gradient(0deg, $color-nero 0%, $color-nero2 100%);  
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -25,8 +23,8 @@
   body {
     margin: 0;
     display: flex;
-    place-items: center;
-    min-width: 320px;
+    flex-direction: column;
+    // place-items: center;
     min-height: 100vh;
   }
   
