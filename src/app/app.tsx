@@ -2,7 +2,7 @@
 const App = () : JSX.Element => {
     return (
         <div>
-            shgshsh63665656
+            <h1>Привет</h1>
         </div>
     )
 }
