@@ -1,0 +1,176 @@
+@import "func";
+@import "variables";
+
+@mixin desktop {
+	@media (max-width: $desktop) {
+		@content;
+	}
+}
+
+@mixin desktop-small {
+	@media (max-width: ($desktop - 1px)) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (max-width: ($tablet - 1px)) {
+		@content;
+	}
+}
+
+@mixin tablet-small {
+	@media (max-width: ($tablet-small - 1px)) {
+		@content;
+	}
+}
+
+@mixin mobile-large {
+	@media (max-width: $mobile-large) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: $mobile) {
+		@content;
+	}
+}
+
+@mixin desktop-only {
+	@media (min-width: $tablet) {
+		@content;
+	}
+}
+
+@mixin retina {
+	@media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+		@content;
+	}
+}
+
+@mixin h1 {
+	font-weight: 400;
+	font-size: rem(96);
+	line-height: 1.04;
+
+	@include tablet-small {
+		font-size: rem(38);
+	}
+}
+
+@mixin h2 {
+	font-weight: 400;
+	font-size: rem(80);
+	line-height: 0.9;
+
+	@include tablet-small {
+		font-size: rem(32);
+	}
+}
+
+@mixin h3 {
+	font-weight: 400;
+	font-size: rem(30);
+	line-height: 1.33;
+
+	@include tablet-small {
+		font-size: rem(24);
+	}
+}
+
+@mixin h4 {
+	font-weight: 400;
+	font-size: rem(20);
+	line-height: 1.2;
+
+	@include tablet-small {
+		font-size: rem(18);
+	}
+}
+
+@mixin text {
+	font-weight: 400;
+	font-size: rem(16);
+	line-height: rem(20);
+}
+
+@mixin reset-btn {
+	font-family: inherit;
+	padding: 0;
+	background-color: var(--color-transparent);
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+@mixin visually-hidden {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	white-space: nowrap;
+	border: 0;
+	clip-path: inset(100%);
+}
+
+// Desktop first
+
+@mixin vp-1439 {
+	@media (max-width: ($vp-1440 - 1px)) {
+		@content;
+	}
+}
+
+@mixin vp-1023 {
+	@media (max-width: ($vp-1024 - 1px)) {
+		@content;
+	}
+}
+
+@mixin vp-767 {
+	@media (max-width: ($vp-768 - 1px)) {
+		@content;
+	}
+}
+
+@mixin vp-374 {
+	@media (max-width: ($vp-375 - 1px)) {
+		@content;
+	}
+}
+
+// Адаптивное свойство
+$maxWidth: 1920; // Максимальная ширина всей страницы
+$maxWidthContainer: 1440; // Максимальная ширина контейнера
+
+// Миксин для настройки адаптивных свойств
+@mixin adaptiveValue($property, $startSize, $minSize, $type: 0) {
+	$addSize: $startSize - $minSize; // Вычисляем разницу между начальным и минимальным значением
+
+	@if $type == 1 {
+		// Только если меньше контейнера
+		#{$property}: $startSize + px; // Устанавливаем начальное значение
+
+		@media (max-width: #{$maxWidthContainer + px}) {
+			#{$property}: calc(
+				#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320})
+			); // Изменяем значение на экранах с шириной меньше максимальной ширины контейнера
+		}
+	} @else if $type == 2 {
+		// Только если больше контейнера
+		#{$property}: $startSize + px; // Устанавливаем начальное значение
+
+		@media (min-width: #{$maxWidthContainer + px}) {
+			#{$property}: calc(
+				#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
+			); // Изменяем значение на экранах с шириной больше максимальной ширины контейнера
+		}
+	} @else {
+		// Всегда
+		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})); // Изменяем значение на всех экранах
+	}
+}

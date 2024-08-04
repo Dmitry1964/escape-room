@@ -1,3 +1,5 @@
+@use 'src/styles/mixins';
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -10,6 +12,10 @@
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+
+  @include mixins.tablet {
+    display: none;
+  }
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);

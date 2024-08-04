@@ -1,0 +1,34 @@
+$roboto: var(--font-roboto);
+// breakpoints
+$desktop: 1440px;
+$tablet: 1024px;
+$tablet-small: 768px;
+$mobile-large: 480px;
+$mobile: 320px;
+
+// Viewports
+// ---------------------------------
+
+$vp-320:                            320px;
+$vp-375:                            375px;
+$vp-500:                            500px;
+$vp-768:                            768px;
+$vp-1024:                           1024px;
+$vp-1200:                           1200px;
+$vp-1280:                           1280px;
+$vp-1440:                           1440px;
+$vp-1920:                           1920px;
+
+// retina
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;
+
+// transitions
+$transition-duration: 0.3s;
+$transition-timing-function: ease;
+$transition: $transition-duration $transition-timing-function;
+
+
+//Paddings - резиновые паддинги
+
+$plan-step-padding-desktop: percentage(calc(160/1320));
