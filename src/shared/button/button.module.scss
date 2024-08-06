@@ -19,6 +19,8 @@
     height: 24px;
     border: 1px solid $color-tangerine;
     text-transform: uppercase;
+    justify-self: flex-end;
+    transform: translateY(-3px);
 }
 
 .button_logout {

@@ -37,4 +37,8 @@
     transition: border-color 0.25s;
   }
   
-  
+ *,
+ *::before,
+ *::after {
+  box-sizing: border-box;
+ } 

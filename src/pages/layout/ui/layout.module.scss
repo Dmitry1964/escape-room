@@ -1,7 +1,30 @@
+@import 'src/styles/variables';
+
 .header {
     display: grid;
-    grid-template-columns: 10.31% 1fr 17.85% 11.61%;
+    grid-template-columns: 134px 783px 232px 151px;
     align-items: center;
     padding-top: 24px;
     padding-bottom: 24px;
 }
+
+.header__phone {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    padding-bottom: 5px;
+    padding-right: 10px;
+
+    & a {
+        font-size: 14px;
+        font-variant-caps: all-small-caps;
+        font-weight: 600;
+        color: $color-white-smoke;
+        letter-spacing: 0.03em;
+    }
+}
+
+.isActive {
+    color: $color-tangerine;
+} 
