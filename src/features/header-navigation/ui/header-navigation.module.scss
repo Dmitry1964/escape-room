@@ -7,6 +7,7 @@
     padding: 0;
     list-style: none;
     justify-self: flex-end;
+    transform: translateY(-3px);
 }
 
 .item {
@@ -15,9 +16,18 @@
     &:last-child {
         padding-right: 0;
     }
+}
 
-    & a {
-        color: $color-white-default;
-        text-transform: uppercase;
-    }
+.header__link {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: $color-white-smoke;
+    color: $color-white-default;
+    text-transform: uppercase;
+}
+
+.active {
+    color: $color-tangerine;
 }
