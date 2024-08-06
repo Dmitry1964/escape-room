@@ -1,4 +1,4 @@
 declare module '*.scss' {
-    const content: {[classNames: string] : boolean};
+    const content: {[classNames: string] : string};
     export =  content
 };
