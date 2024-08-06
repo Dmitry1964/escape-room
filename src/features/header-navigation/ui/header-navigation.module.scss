@@ -1,0 +1,23 @@
+@import 'src/styles/variables';
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-self: flex-end;
+}
+
+.item {
+    padding-right: 58px;
+    
+    &:last-child {
+        padding-right: 0;
+    }
+
+    & a {
+        color: $color-white-default;
+        text-transform: uppercase;
+    }
+}
