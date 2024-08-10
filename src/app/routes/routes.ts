@@ -7,3 +7,7 @@ export enum AppRoutes {
     Logout = 'logout',
     Contacts = 'Контакты',
 }
+
+export enum FetchRoutes {
+  Catalog = '/quest'
+}
