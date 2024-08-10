@@ -5,8 +5,7 @@ import cn from 'classnames';
 
 const HeaderNavigation = (): JSX.Element => {
   const location = useLocation();
-  console.log(location);
-  
+
   return (
     <ul className={styles.list}>
       <li className={styles.item}>

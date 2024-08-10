@@ -1,0 +1,38 @@
+@import 'src/styles/variables';
+
+.filter_type {
+  margin-bottom: 26px;
+}
+
+.filter_type__list {
+  display: grid;
+  grid-template-columns: 156px 220px 166px 180px 194px 114px;
+  height: 40px;
+}
+
+.filter_type__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: $color-white-default;
+  border-right: 1px solid $color-white-32;
+  padding: 3px 0;
+
+  &:first-child {
+    justify-content: flex-start;
+  }
+
+  &:last-child {
+    padding-left: 40px;
+    border: none;
+  }
+
+  & span:last-of-type {
+    padding-bottom: 5px;
+  }
+}

@@ -1,0 +1,27 @@
+@import 'src/styles/variables';
+
+.filter_level {
+  padding: 0;
+}
+
+.filter_level__list {
+  display: grid;
+  grid-template-columns: 156px 220px 166px 180px;
+  height: 40px;
+  align-items: center;
+}
+
+.filter_level__item {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+
+  &:first-child {
+    justify-content: flex-start;
+    margin-left: 40px;
+    line-height: 144%;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: $color-white-default;
+  }
+}

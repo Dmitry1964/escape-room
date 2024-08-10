@@ -1,8 +1,10 @@
 import styles from "./layout.module.scss";
-import { Outlet } from "react-router-dom";
-import Container from "src/shared/container/container";
-import { HeaderNavigation } from "src/features/header-navigation";
-import Button from "src/shared/button/button";
+import { Outlet } from 'react-router-dom';
+import Container from 'src/shared/container/container';
+import { HeaderNavigation } from 'src/features/header-navigation';
+import Button from 'src/shared/button/button';
+import { FiltersType } from "src/features/filters-type";
+import { FiltersLevel } from "src/features/filters-level";
 
 const Layout = () => {
   return (
@@ -19,6 +21,8 @@ const Layout = () => {
           <a href="">8 (000) 111-11-11</a>
         </div>
       </header>
+      <FiltersType/>
+      <FiltersLevel/>
       <Outlet />
       <footer></footer>
     </Container>
