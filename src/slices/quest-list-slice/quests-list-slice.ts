@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit/react';
+import { createSlice} from '@reduxjs/toolkit/react';
 import { fetchQuestsList } from 'src/app/actions/api-actions';
 import { TQuest } from 'src/app/types/app-types';
 import { FetchStatus } from 'src/shared/constans';
