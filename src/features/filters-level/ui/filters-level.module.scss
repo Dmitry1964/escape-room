@@ -7,14 +7,17 @@
 .filter_level__list {
   display: grid;
   grid-template-columns: 156px 220px 166px 180px;
-  height: 40px;
   align-items: center;
 }
 
 .filter_level__item {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 40px;
   font-size: 16px;
+  border-right: 1px solid $color-white-32;
+
 
   &:first-child {
     justify-content: flex-start;

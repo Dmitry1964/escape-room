@@ -1,0 +1,21 @@
+@import 'src/styles/variables';
+
+.catalog {
+     padding: 20px 116px  52px 102px;
+}
+
+h1 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 144%;
+  color: $color-tangerine;
+  margin: 0 0 5px;
+}
+
+h2 {
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 110%;
+  color: $color-white-default;
+  margin: 0 0 50px;
+}
