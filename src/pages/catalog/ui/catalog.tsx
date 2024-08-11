@@ -4,9 +4,10 @@ import { FiltersLevel } from 'src/features/filters-level';
 import { useAppDispatch } from 'src/shared/hooks';
 import { fetchQuestsList } from 'src/app/actions/api-actions';
 import { useEffect } from 'react';
+import { QuestCard } from 'src/widgets/quest-card';
 
 
-const Catalog = () : JSX.Element => {
+const Catalog = (): JSX.Element => {
 
   const dispatch = useAppDispatch();
 
@@ -15,13 +16,16 @@ const Catalog = () : JSX.Element => {
   }, [dispatch]);
 
   return (
-    <section className={styles.catalog}>
-      <h1>квесты в Санкт-Петербурге</h1>
-      <h2>Выберите тематику</h2>
+    <main>
+      <section className={styles.catalog}>
+        <h1>квесты в Санкт-Петербурге</h1>
+        <h2>Выберите тематику</h2>
 
-      <FiltersType/>
-      <FiltersLevel />
-    </section>
+        <FiltersType />
+        <FiltersLevel />
+        <QuestCard />
+      </section>
+    </main>
   )
 };
 
