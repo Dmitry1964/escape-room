@@ -1,11 +1,10 @@
-import { TQuest } from 'src/app/types/app-types';
 import styles from './quest-card.module.scss';
 
-type TQueatCardProps = {
-  questCard: TQuest;
-}
+// type TQueatCardProps = {
+//   questCard: TQuest;
+// }
 
-const QuestCard = ({questCard} : TQueatCardProps): JSX.Element => {
+const QuestCard = (): JSX.Element => {
 
   // const {id} = questCard;
   return (
