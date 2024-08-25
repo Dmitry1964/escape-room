@@ -27,4 +27,13 @@
 
 .isActive {
     color: $color-tangerine;
-} 
+}
+
+.footer {
+  padding-bottom: 24px;
+
+  & ul {
+    display: flex;
+    align-items: center;
+  }
+}

@@ -26,7 +26,7 @@ const QuestCard = ({ questCard }: TQuestCardProps): JSX.Element => {
               {peopleMinMax.map((item) => (
                 <span key={item}>{item}</span>
               ))}
-              <span>{` чел`}</span>
+              <span>{' чел'}</span>
             </li>
             <li>
               <img src="svg/puzzle.svg" width={16} height={16} alt="иконка персона" />
@@ -36,7 +36,7 @@ const QuestCard = ({ questCard }: TQuestCardProps): JSX.Element => {
         </div>
       </div>
     </article>
-  )
+  );
 };
 
 export default QuestCard;

@@ -20,11 +20,22 @@ const Layout = () => {
         </div>
       </header>
       <Outlet />
-      <footer></footer>
+      <footer className={styles.footer}>
+        <ul>
+          <li>
+            <a href="#">
+              <img src="svg/skype-default.svg" width={28} height={28} alt="иконка skype" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="svg/vk-default.svg" width={28} height={28} alt="иконка skype" />
+            </a>
+          </li>
+        </ul>
+      </footer>
     </Container>
   );
 };
-
-// 10.31 1fr 17.85 11.61
 
 export default Layout;
