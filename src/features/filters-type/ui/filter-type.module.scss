@@ -22,6 +22,7 @@
   color: $color-white-default;
   border-right: 1px solid $color-white-32;
   padding: 3px 0;
+  cursor: pointer;
 
   &:first-child {
     justify-content: flex-start;

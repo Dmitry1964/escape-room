@@ -1,12 +1,23 @@
 import styles from './filter-type.module.scss';
+import FilterItemImg from 'src/shared/filter-item-img/filter-item-img';
 
-const filtersType = [
+export type TFiltersType = {
+  url: string;
+  name: string;
+  width: number;
+  height: number;
+  alt: string;
+  value: string;
+}
+
+const filtersType: TFiltersType[] = [
   {
     url: 'svg/all-quests.svg',
     name: 'Все квесты',
     width: 26,
     height: 30,
     alt: 'Иконка - все квесты',
+    value: 'allQuests',
   },
   {
     url: 'svg/adventure.svg',
@@ -14,6 +25,7 @@ const filtersType = [
     width: 36,
     height: 30,
     alt: 'Иконка - приключения',
+    value: 'adventure',
   },
   {
     url: 'svg/horrors.svg',
@@ -21,6 +33,7 @@ const filtersType = [
     width: 30,
     height: 30,
     alt: 'Иконка - ужасы',
+    value: 'horrors',
   },
   {
     url: 'svg/mystic.svg',
@@ -28,6 +41,7 @@ const filtersType = [
     width: 30,
     height: 30,
     alt: 'Иконка - все квесты',
+    value: 'mystic',
   },
   {
     url: 'svg/detective.svg',
@@ -35,6 +49,7 @@ const filtersType = [
     width: 40,
     height: 30,
     alt: 'Иконка - детективы',
+    value: 'detective',
   },
   {
     url: 'svg/sciFi.svg',
@@ -42,28 +57,20 @@ const filtersType = [
     width: 28,
     height: 30,
     alt: 'Иконка - научная фантастика',
+    value: 'sci-fi',
   },
+];
 
-]
-
-const FiltersType = () => {
-  return (
-    <div className={styles.filter_type}>
-      <ul className={styles.filter_type__list}>
-        {filtersType.map((item) => (
-          <li className={styles.filter_type__item} key={item.name}>
-            <span>
-              <img src={item.url} width={item.width} height={item.height} alt={item.alt} />
-            </span>
-            <span>
-              {item.name}
-            </span>
-          </li>
-        ))}
-      </ul>
-
-    </div>
-  )
-}
+const FiltersType = () => (
+  <div className={styles.filter_type}>
+    <ul className={styles.filter_type__list}>
+      {filtersType.map((item) => (
+        <li className={styles.filter_type__item} key={item.name} tabIndex={0}>
+          <FilterItemImg filterItem={item} />
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 export default FiltersType;

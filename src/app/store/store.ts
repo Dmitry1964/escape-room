@@ -7,16 +7,16 @@ const api = createApi()
 
 const rootReducer = combineReducers({
   questsList,
-})
+});
 
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddeware) =>
-  getDefaultMiddeware({
-    thunk: {
-      extraArgument: api,
-    }
-  })
+    getDefaultMiddeware({
+      thunk: {
+        extraArgument: api,
+      }
+    })
 })
 
 export type RootState = ReturnType<typeof rootReducer>;
