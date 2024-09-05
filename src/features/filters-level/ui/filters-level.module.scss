@@ -1,4 +1,5 @@
 @import 'src/styles/variables';
+@import 'src/styles/mixins';
 
 .filter_level {
   padding: 0;
@@ -15,8 +16,11 @@
   justify-content: center;
   align-items: center;
   height: 40px;
-  font-size: 16px;
   border-right: 1px solid $color-white-32;
+
+  & label {
+    cursor: pointer;
+  }
 
 
   &:first-child {
@@ -27,4 +31,20 @@
     letter-spacing: 0.05em;
     color: $color-white-default;
   }
+}
+
+.input__field {
+  @include visually-hidden;
+}
+
+.input__label {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 144%;
+  letter-spacing: 0.05em;
+  padding-bottom: 2px;
+}
+
+.input__field:checked ~ .input__label {
+  border-bottom: 1px solid $color-tangerine;
 }
