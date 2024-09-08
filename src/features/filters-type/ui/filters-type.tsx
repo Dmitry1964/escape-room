@@ -26,7 +26,7 @@ const filtersType: TFiltersType[] = [
     width: 30,
     height: 30,
     alt: 'Иконка - ужасы',
-    value: 'horrors',
+    value: 'horror',
   },
   {
     url: 'svg/mystic.svg',
@@ -50,7 +50,7 @@ const filtersType: TFiltersType[] = [
     width: 28,
     height: 30,
     alt: 'Иконка - научная фантастика',
-    value: 'scifi',
+    value: 'sci-fi',
   },
 ];
 
