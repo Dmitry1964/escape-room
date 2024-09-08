@@ -4,7 +4,7 @@ export type TQuest = {
     previewImg: string;
     previewImgWebp: string;
     level: QuestLevel;
-    type: QuestType;
+    type: QuestTypeNames;
     peopleMinMax: [number];
 }
 

@@ -8,8 +8,6 @@ import { QuestCard } from 'src/widgets/quest-card';
 import { Link } from 'react-router-dom';
 import { QuestTypeNames, TFilters } from 'src/app/types/app-types';
 
-
-
 const Catalog = (): JSX.Element => {
 
   const dispatch = useAppDispatch();
@@ -46,7 +44,7 @@ const Catalog = (): JSX.Element => {
         </div>
       </section>
     </main>
-  )
+  );
 };
 
 export default Catalog;
