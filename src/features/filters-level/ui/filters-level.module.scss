@@ -33,18 +33,3 @@
   }
 }
 
-.input__field {
-  @include visually-hidden;
-}
-
-.input__label {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 144%;
-  letter-spacing: 0.05em;
-  padding-bottom: 2px;
-}
-
-.input__field:checked ~ .input__label {
-  border-bottom: 1px solid $color-tangerine;
-}

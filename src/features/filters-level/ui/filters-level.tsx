@@ -1,41 +1,39 @@
+import FilterItemLevel from 'src/shared/filtyer-item-level/filter-item-level';
 import styles from './filters-level.module.scss';
+import { TFilters, TFiltersLevel } from 'src/app/types/app-types';
 
+const filtersLevel: TFiltersLevel[] = [
+  {
+    name: 'Любой',
+    value: 'any'
+  },
+  {
+    name: 'Лёгкий',
+    value: 'easy'
+  },
+  {
+    name: 'Средний',
+    value: 'middle'
+  },
+  {
+    name: 'Сложный',
+    value: 'hard'
+  },
+];
 
-enum QuestLevel {
-  Any = 'Любой',
-  Soft = 'Лёгкий',
-  Hard = 'Сложный',
-  Middle = 'Средний',
+type TFiltersLevelProps = {
+  selectFilterLevel: (e:React.ChangeEvent<HTMLInputElement>) => void;
+  filters: TFilters;
 }
 
-
-const FiltersLevel = (): JSX.Element => (
+const FiltersLevel = ({selectFilterLevel, filters}: TFiltersLevelProps): JSX.Element => (
   <div className={styles.filter_level}>
     <ul className={styles.filter_level__list}>
-      <li className={styles.filter_level__item}>
-        <label>
-          <input className={styles.input__field} type='radio' name='filter-level' value={QuestLevel.Any} />
-          <span className={styles.input__label}>{QuestLevel.Any}</span>
-        </label>
-      </li>
-      <li className={styles.filter_level__item}>
-        <label>
-          <input className={styles.input__field} type='radio' name='filter-level' value={QuestLevel.Soft} />
-          <span className={styles.input__label}>{QuestLevel.Soft}</span>
-        </label>
-      </li>
-      <li className={styles.filter_level__item} >
-        <label>
-          <input className={styles.input__field} type='radio' name='filter-level' value={QuestLevel.Middle} />
-          <span className={styles.input__label}>{QuestLevel.Middle}</span>
-        </label>
-      </li>
-      <li className={styles.filter_level__item}>
-        <label>
-          <input className={styles.input__field} type='radio' name='filter-level' value={QuestLevel.Hard} />
-          <span className={styles.input__label}>{QuestLevel.Hard}</span>
-        </label>
-      </li>
+      {filtersLevel.map((item) => (
+        <li className={styles.filter_level__item} key={item.value}>
+          <FilterItemLevel item = {item} selectFilterLevel={selectFilterLevel} filters={filters} />
+        </li>
+      ))}
     </ul>
   </div>
 );

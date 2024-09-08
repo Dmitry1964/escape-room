@@ -1,15 +1,7 @@
-import { TFilters } from 'src/app/types/app-types';
+import { TFilters, TFiltersType } from 'src/app/types/app-types';
 import styles from './filter-type.module.scss';
 import FilterItemImg from 'src/shared/filter-item-img/filter-item-img';
 
-export type TFiltersType = {
-  url: string;
-  name: string;
-  width: number;
-  height: number;
-  alt: string;
-  value: string;
-}
 
 const filtersType: TFiltersType[] = [
   {
