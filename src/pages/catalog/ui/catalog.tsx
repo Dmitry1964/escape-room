@@ -6,14 +6,14 @@ import { fetchQuestsList } from 'src/app/actions/api-actions';
 import React, { useEffect, useState } from 'react';
 import { QuestCard } from 'src/widgets/quest-card';
 import { Link } from 'react-router-dom';
-import { QuestTypeNames, TFilters } from 'src/app/types/app-types';
+import { QuestTypeNames, QuestLevelNames, TFilters } from 'src/app/types/app-types';
 
 const Catalog = (): JSX.Element => {
 
   const dispatch = useAppDispatch();
   const questsList = useAppSelector((state) => state.questsList.quests);
 
-  const [filters, setFilters] = useState<TFilters>({type: QuestTypeNames.All, level: ''});
+  const [filters, setFilters] = useState<TFilters>({type: QuestTypeNames.All, level: QuestLevelNames.Any});
 
   const handleFilterType = (e: React.ChangeEvent<HTMLInputElement>) => {
 
@@ -21,6 +21,13 @@ const Catalog = (): JSX.Element => {
 
     if (value) {
       setFilters({...filters, type: value as QuestTypeNames});
+    }
+  };
+
+  const handleFilterLevel = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.closest('input')?.value;
+    if (value) {
+      setFilters({...filters, level: value as QuestLevelNames});
     }
   };
 
@@ -34,7 +41,7 @@ const Catalog = (): JSX.Element => {
         <h1>квесты в Санкт-Петербурге</h1>
         <h2>Выберите тематику</h2>
         <FiltersType selectFilterType={(e: React.ChangeEvent<HTMLInputElement>) => handleFilterType(e)} filters={filters} />
-        <FiltersLevel />
+        <FiltersLevel selectFilterLevel={(e: React.ChangeEvent<HTMLInputElement>) => handleFilterLevel(e)} filters={filters} />
         <div className={styles.catalog__list}>
           {questsList.map((quest) => (
             <Link key={quest.id} to={ '#'}>
