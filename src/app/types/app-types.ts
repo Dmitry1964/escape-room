@@ -21,10 +21,16 @@ export enum QuestLevel {
     Hard = 'hard',
 }
 
-export enum QuestType {
-    Adventures = 'adventures',
-    Horror = 'horror',
-    Mystic = 'mystic',
-    Detective = 'detective',
-    SciFi = 'sci-fi'
+export enum QuestTypeNames {
+    All = 'AllQuests',
+    Adventures = 'Adventures',
+    Horror = 'Horror',
+    Mystic = 'Mystic',
+    Detective = 'Detective',
+    SciFi = 'Scifi'
+}
+
+export type TFilters = {
+  type: QuestTypeNames;
+  level: string;
 }

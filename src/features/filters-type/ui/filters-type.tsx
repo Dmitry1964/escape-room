@@ -1,3 +1,4 @@
+import { TFilters } from 'src/app/types/app-types';
 import styles from './filter-type.module.scss';
 import FilterItemImg from 'src/shared/filter-item-img/filter-item-img';
 
@@ -25,7 +26,7 @@ const filtersType: TFiltersType[] = [
     width: 36,
     height: 30,
     alt: 'Иконка - приключения',
-    value: 'adventure',
+    value: 'adventures',
   },
   {
     url: 'svg/horrors.svg',
@@ -57,20 +58,24 @@ const filtersType: TFiltersType[] = [
     width: 28,
     height: 30,
     alt: 'Иконка - научная фантастика',
-    value: 'sci-fi',
+    value: 'scifi',
   },
 ];
 
-const FiltersType = () => (
+type TFiltersTypeProps = {
+  selectFilterType: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  filters: TFilters;
+}
+
+const FiltersType = ({ selectFilterType, filters }: TFiltersTypeProps) => (
   <div className={styles.filter_type}>
     <ul className={styles.filter_type__list}>
       {filtersType.map((item) => (
         <li className={styles.filter_type__item} key={item.name} tabIndex={0}>
-          <FilterItemImg filterItem={item} />
+          <FilterItemImg filterItem={item} selectFilterType={selectFilterType} filters={filters} />
         </li>
       ))}
     </ul>
   </div>
 );
-
 export default FiltersType;

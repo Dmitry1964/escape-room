@@ -21,6 +21,7 @@
 
 }
 
-.input__field:checked~.input__label {
+
+.isActive {
   border-bottom: 1px solid $color-tangerine;
 }
