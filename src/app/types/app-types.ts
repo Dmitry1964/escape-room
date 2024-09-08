@@ -28,7 +28,7 @@ export enum QuestTypeNames {
   Horror = 'horror',
   Mystic = 'mystic',
   Detective = 'detective',
-  SciFi = 'scifi'
+  SciFi = 'sci-fi'
 }
 
 export type TFiltersType = {

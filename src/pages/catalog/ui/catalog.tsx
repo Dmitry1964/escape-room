@@ -6,28 +6,45 @@ import { fetchQuestsList } from 'src/app/actions/api-actions';
 import React, { useEffect, useState } from 'react';
 import { QuestCard } from 'src/widgets/quest-card';
 import { Link } from 'react-router-dom';
-import { QuestTypeNames, QuestLevelNames, TFilters } from 'src/app/types/app-types';
+import { QuestTypeNames, QuestLevelNames, TFilters} from 'src/app/types/app-types';
 
 const Catalog = (): JSX.Element => {
 
   const dispatch = useAppDispatch();
   const questsList = useAppSelector((state) => state.questsList.quests);
 
-  const [filters, setFilters] = useState<TFilters>({type: QuestTypeNames.All, level: QuestLevelNames.Any});
+  const [filters, setFilters] = useState<TFilters>({ type: QuestTypeNames.All, level: QuestLevelNames.Any });
 
   const handleFilterType = (e: React.ChangeEvent<HTMLInputElement>) => {
 
     const value = e.target.closest('input')?.value;
 
     if (value) {
-      setFilters({...filters, type: value as QuestTypeNames});
+      setFilters({ ...filters, type: value as QuestTypeNames });
     }
   };
 
   const handleFilterLevel = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.closest('input')?.value;
     if (value) {
-      setFilters({...filters, level: value as QuestLevelNames});
+      setFilters({ ...filters, level: value as QuestLevelNames });
+    }
+  };
+  const filteredQuestByType = () => {
+    if (filters.type.toLowerCase() === QuestTypeNames.All.toLowerCase()) {
+      return questsList;
+    } else {
+      return [...questsList]
+        .filter((item) => item.type.toLowerCase() === filters.type.toLowerCase());
+    }
+  };
+
+  const filteredQuest = () => {
+    const quests = filteredQuestByType();
+    if (filters.level.toLowerCase() === QuestLevelNames.Any.toLowerCase()) {
+      return quests;
+    } else {
+      return [...quests].filter((item) => item.level.toLowerCase() === filters.level.toLowerCase());
     }
   };
 
@@ -43,8 +60,8 @@ const Catalog = (): JSX.Element => {
         <FiltersType selectFilterType={(e: React.ChangeEvent<HTMLInputElement>) => handleFilterType(e)} filters={filters} />
         <FiltersLevel selectFilterLevel={(e: React.ChangeEvent<HTMLInputElement>) => handleFilterLevel(e)} filters={filters} />
         <div className={styles.catalog__list}>
-          {questsList.map((quest) => (
-            <Link key={quest.id} to={ '#'}>
+          {filteredQuest()?.map((quest) => (
+            <Link key={quest.id} to={'#'}>
               <QuestCard questCard={quest} />
             </Link>
           ))}
