@@ -14,7 +14,6 @@ export type TDetailQuest = TQuest & {
   coverImgWebp: string;
 }
 
-
 export enum QuestLevelNames {
   Any = 'any',
   Easy = 'easy',
