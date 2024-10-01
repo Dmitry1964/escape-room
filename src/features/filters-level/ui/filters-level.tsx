@@ -13,7 +13,7 @@ const filtersLevel: TFiltersLevel[] = [
   },
   {
     name: 'Средний',
-    value: 'medium'
+    value: 'medium '
   },
   {
     name: 'Сложный',
