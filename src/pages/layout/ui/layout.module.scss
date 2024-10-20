@@ -1,11 +1,17 @@
 @import 'src/styles/variables';
+@import 'src/styles/mixins';
 
 .header {
     display: grid;
-    grid-template-columns: 134px 783px 232px 151px;
+    grid-template-columns: 134px 60.2% 17.85% 11.61%;
     align-items: center;
     padding-top: 24px;
     padding-bottom: 24px;
+
+    @include desktop-medium {
+      grid-template-columns: 134px 55% 17.85% 16.65%;
+      color: red;
+    }
 }
 
 .header__phone {
