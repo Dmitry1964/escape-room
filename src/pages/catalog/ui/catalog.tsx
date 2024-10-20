@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { QuestCard } from 'src/widgets/quest-card';
 import { Link } from 'react-router-dom';
 import { QuestTypeNames, QuestLevelNames, TFilters } from 'src/app/types/app-types';
+import { AppRoutes } from 'src/app/routes/routes';
 
 const Catalog = (): JSX.Element => {
 
@@ -64,7 +65,7 @@ const Catalog = (): JSX.Element => {
               <img src='content/notfound.jpg ' width={1024} alt='Ничег нет' />
             </div>}
           {filteredQuest()?.map((quest) => (
-            <Link key={quest.id} to={'#'}>
+            <Link key={quest.id} to={`${AppRoutes.Quest}/${quest.id}`}>
               <QuestCard questCard={quest} />
             </Link>
           ))}

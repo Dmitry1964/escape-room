@@ -13,6 +13,13 @@
 	}
 }
 
+@mixin desktop-medium {
+	@media (max-width: ($desktop-medium - 1px)) {
+		@content;
+	}
+}
+
+
 @mixin tablet {
 	@media (max-width: ($tablet - 1px)) {
 		@content;

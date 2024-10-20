@@ -1,6 +1,6 @@
-import { Link, useLocation } from "react-router-dom";
-import styles from "./header-navigation.module.scss";
-import { AppRoutes } from "src/app/routes/routes";
+import { Link, useLocation } from 'react-router-dom';
+import styles from './header-navigation.module.scss';
+import { AppRoutes } from 'src/app/routes/routes';
 import cn from 'classnames';
 
 const HeaderNavigation = (): JSX.Element => {
