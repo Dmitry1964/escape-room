@@ -1,5 +1,5 @@
 import styles from './filter-item-img.module.scss';
-import { TFilters, TFiltersType } from 'src/app/types/app-types';
+import { TFilters, TFiltersType } from 'src/shared/types/app-types';
 import cn from 'classnames';
 
 type TFilterItemImgProps = {

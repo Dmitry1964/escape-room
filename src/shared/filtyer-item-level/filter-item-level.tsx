@@ -1,4 +1,4 @@
-import { TFilters, TFiltersLevel } from 'src/app/types/app-types';
+import { TFilters, TFiltersLevel } from 'src/shared/types/app-types';
 import styles from './filter-item-level.module.scss';
 import cn from 'classnames';
 
