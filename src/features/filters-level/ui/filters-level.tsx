@@ -1,6 +1,6 @@
 import FilterItemLevel from 'src/shared/filtyer-item-level/filter-item-level';
 import styles from './filters-level.module.scss';
-import { TFilters, TFiltersLevel } from 'src/app/types/app-types';
+import { TFilters, TFiltersLevel } from 'src/shared/types/app-types';
 
 const filtersLevel: TFiltersLevel[] = [
   {

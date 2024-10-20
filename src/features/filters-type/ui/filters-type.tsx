@@ -1,4 +1,4 @@
-import { TFilters, TFiltersType } from 'src/app/types/app-types';
+import { TFilters, TFiltersType } from 'src/shared/types/app-types';
 import styles from './filter-type.module.scss';
 import FilterItemImg from 'src/shared/filter-item-img/filter-item-img';
 

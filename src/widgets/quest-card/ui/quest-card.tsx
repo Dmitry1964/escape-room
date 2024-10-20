@@ -1,4 +1,4 @@
-import { TQuest } from 'src/app/types/app-types';
+import { TQuest } from 'src/shared/types/app-types';
 import styles from './quest-card.module.scss';
 
 type TQuestCardProps = {

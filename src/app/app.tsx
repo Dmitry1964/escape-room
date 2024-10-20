@@ -1,8 +1,8 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { AppRoutes } from './routes/routes';
+import { AppRoutes } from '../shared/routes/routes';
 import { Layout } from '../pages/layout';
 import { Catalog } from 'src/pages/catalog';
-import QuestPage from 'src/pages/quest-page/ui/quest-page';
+import { QuestPage } from 'src/pages/quest-page';
 
 
 const App = (): JSX.Element => {

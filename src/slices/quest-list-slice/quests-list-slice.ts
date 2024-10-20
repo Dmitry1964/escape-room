@@ -1,6 +1,6 @@
-import { createSlice} from '@reduxjs/toolkit/react';
+import { createSlice } from '@reduxjs/toolkit/react';
 import { fetchQuestsList } from 'src/app/actions/api-actions';
-import { TQuest } from 'src/app/types/app-types';
+import { TQuest } from 'src/shared/types/app-types';
 import { FetchStatus } from 'src/shared/constans';
 
 
@@ -10,10 +10,10 @@ type TQuestsListState = {
 }
 
 
-const initialState : TQuestsListState = {
+const initialState: TQuestsListState = {
   quests: [],
   status: FetchStatus.Idle,
-}
+};
 
 const questsListSlice = createSlice({
   name: 'questsList',
@@ -32,8 +32,8 @@ const questsListSlice = createSlice({
 
       .addCase(fetchQuestsList.rejected, (state) => {
         state.status = FetchStatus.Rejected;
-              })
+      });
   },
-})
+});
 
 export default questsListSlice.reducer;

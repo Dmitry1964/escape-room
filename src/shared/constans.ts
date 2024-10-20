@@ -1,5 +1,6 @@
 export enum ApiActions {
   DataFetchQuestsList = 'data/fetchQuestsList',
+  DataFetchQuest = 'data/fetchQuest',
 }
 
 export enum FetchStatus {
@@ -17,3 +18,12 @@ export enum FilterTypeNames {
   Detective = 'Detective',
   SciFi = 'SciFi',
 }
+
+export const questsType = {
+  'adventure': 'Приключения',
+  'horror': 'Ужасы',
+  'mystic': 'Мистика',
+  'detective': 'Детектив',
+  'sci-fi': 'Научная фантастика',
+};
+
