@@ -4,6 +4,7 @@ import Container from 'src/shared/container/container';
 import { HeaderNavigation } from 'src/features/header-navigation';
 import Button from 'src/shared/button/button';
 import { AppRoutes } from 'src/shared/routes/routes';
+import cn from 'classnames';
 
 const Layout = () => {
   const { pathname } = useLocation();
@@ -11,7 +12,7 @@ const Layout = () => {
   return (
     <div className={styles.page}>
       <Container>
-        <header className={styles.header}>
+        <header className={cn(styles.header, {[styles.header__absolute]: pathname !== AppRoutes.Catalog as string})}>
           {pathname === AppRoutes.Catalog as string &&
             <div className={styles.header__logo}>
               <img src="/svg/logo.svg" width={134} height={50} alt="Логотип" />
@@ -50,7 +51,7 @@ const Layout = () => {
         </footer>
       </Container>
 
-    </div>
+    </div >
   );
 };
 

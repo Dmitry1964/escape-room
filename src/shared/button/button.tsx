@@ -3,16 +3,16 @@ import cn from 'classnames';
 
 
 type TButtonProps = {
-    children: React.ReactNode;
-    className?: string;
+  children: React.ReactNode;
+  className?: string;
 }
 
-const Button = ({children, className} : TButtonProps) => {
-const buttonClassName = cn(styles.button, styles[`${className}`])
+const Button = ({ children, className }: TButtonProps) => {
+  const buttonClassName = cn(styles.button, styles[`${className}`])
 
-    return (
-        <button className={buttonClassName}>{children}</button>
-    )
+  return (
+    <button className={buttonClassName}>{children}</button>
+  )
 }
 
-export default Button
+export default Button;

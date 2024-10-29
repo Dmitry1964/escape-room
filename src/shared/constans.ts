@@ -27,3 +27,8 @@ export const questsType = {
   'sci-fi': 'Научная фантастика',
 };
 
+export const questLevel = {
+  'hard': 'сложный',
+  'medium': 'средний',
+  'easy': 'легкий',
+};
