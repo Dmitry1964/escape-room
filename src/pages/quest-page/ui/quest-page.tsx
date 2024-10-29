@@ -38,8 +38,8 @@ const QuestPage = () => {
               <ul className={styles.quest__options_list}>
                 <li>
                   <img src="/svg/person.svg" width={19} alt="asdsdsd" />
-                  {peopleMinMax.length > 0 &&
-                    <span>{`${peopleMinMax[0]} - ${peopleMinMax[0]}`}</span>}
+                  {peopleMinMax.length &&
+                    <span>{`${peopleMinMax[0]} - ${peopleMinMax[1]}`}</span>}
                   <span>чел</span>
                 </li>
                 <li>

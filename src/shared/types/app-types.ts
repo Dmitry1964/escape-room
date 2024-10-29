@@ -5,7 +5,7 @@ export type TQuest = {
   previewImgWebp: string;
   level: QuestLevelNames;
   type: QuestTypeNames;
-  peopleMinMax: [number];
+  peopleMinMax: [number, number];
 }
 
 export type TDetailQuest = TQuest & {
