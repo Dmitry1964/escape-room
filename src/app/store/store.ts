@@ -2,6 +2,7 @@ import { createApi } from '../api/api';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import questsList from 'src/slices/quest-list-slice/quests-list-slice';
 import detailedQuest from 'src/slices/quest-slice/quest-slice';
+import userAuthStatus from 'src/slices/authorization-slice/authorization-slice';
 
 const api = createApi();
 
@@ -9,6 +10,7 @@ const api = createApi();
 const rootReducer = combineReducers({
   questsList,
   detailedQuest,
+  userAuthStatus,
 });
 
 export const store = configureStore({

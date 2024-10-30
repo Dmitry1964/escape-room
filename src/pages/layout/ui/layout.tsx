@@ -5,9 +5,11 @@ import { HeaderNavigation } from 'src/features/header-navigation';
 import Button from 'src/shared/button/button';
 import { AppRoutes } from 'src/shared/routes/routes';
 import cn from 'classnames';
+import { useAppSelector } from 'src/shared/hooks';
 
 const Layout = () => {
   const { pathname } = useLocation();
+  const authUserStaus = useAppSelector((state) => state.userAuthStatus.authStatus);
 
   return (
     <div className={styles.page}>
@@ -24,7 +26,7 @@ const Layout = () => {
               </div>
             </Link>
           )}
-          <HeaderNavigation />
+          <HeaderNavigation authStatus = {authUserStaus} />
           <Button className={'button_login'}>
             Вход
           </Button>

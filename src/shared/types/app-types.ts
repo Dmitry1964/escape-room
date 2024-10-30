@@ -54,3 +54,8 @@ export enum AuthStatus {
   NoAuth = 'NO_AUTH',
   Unknown = 'UNKNOWN',
 }
+
+export type TUserAuthData = {
+  email: string;
+  token: string;
+}
