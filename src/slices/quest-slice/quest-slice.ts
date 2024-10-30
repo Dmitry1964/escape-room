@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchQuest } from 'src/app/actions/api-actions';
 import { FetchStatus } from 'src/shared/constans';
-import {TDetailQuest } from 'src/shared/types/app-types';
+import {QuestLevelNames, QuestTypeNames, TDetailQuest } from 'src/shared/types/app-types';
 
 
 type TQuestState = {
@@ -10,7 +10,18 @@ type TQuestState = {
 }
 
 const initialState: TQuestState = {
-  quest: {} as TDetailQuest,
+  quest: {
+    coverImg: '',
+    coverImgWebp: '',
+    description: '',
+    id: '',
+    level: QuestLevelNames.Any,
+    peopleMinMax: [1,2],
+    previewImg: '',
+    previewImgWebp: '',
+    title: '',
+    type: QuestTypeNames.All
+  },
   status: FetchStatus.Idle,
 };
 

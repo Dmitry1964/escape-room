@@ -32,3 +32,4 @@ export const questLevel = {
   'medium': 'средний',
   'easy': 'легкий',
 };
+
