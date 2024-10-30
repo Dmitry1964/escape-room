@@ -6,6 +6,7 @@ import { fetchQuest } from 'src/app/actions/api-actions';
 import Container from 'src/shared/container/container';
 import { useAppDispatch, useAppSelector } from 'src/shared/hooks';
 import { questsType } from 'src/shared/constans';
+import { getQuestTypeNames } from 'src/shared/service';
 
 const QuestPage = () => {
   const { questId } = useParams();
@@ -33,7 +34,7 @@ const QuestPage = () => {
           <div className={styles.quest__info}>
             <div className={styles.quest__info_wrapper}>
               {questsType &&
-                <span className={styles.quest__type}>{questsType[type as keyof typeof questsType].toLowerCase()}</span>}
+                <span className={styles.quest__type}>{getQuestTypeNames(type)}</span>}
               <h2 className={styles.quest__title}>{title}</h2>
               <ul className={styles.quest__options_list}>
                 <li>
