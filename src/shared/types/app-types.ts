@@ -48,3 +48,9 @@ export type TFilters = {
   type: QuestTypeNames;
   level: string;
 }
+
+export enum AuthStatus {
+  Auth = 'AUTH',
+  NoAuth = 'NO_AUTH',
+  Unknown = 'UNKNOWN',
+}

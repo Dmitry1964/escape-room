@@ -6,12 +6,11 @@ import { fetchQuest } from 'src/app/actions/api-actions';
 import Container from 'src/shared/container/container';
 import { useAppDispatch, useAppSelector } from 'src/shared/hooks';
 import { questsType } from 'src/shared/constans';
-import { getQuestTypeNames } from 'src/shared/service';
+import { getQuestTypeNames, getQuestLevelNames } from 'src/shared/service';
 
 const QuestPage = () => {
   const { questId } = useParams();
-  const detailedQuest = useAppSelector((state) => state.detailedQuest.quest);
-  const { title, coverImgWebp, coverImg, type, peopleMinMax, description } = detailedQuest;
+  const { title, coverImgWebp, coverImg, type, peopleMinMax, description, level } = useAppSelector((state) => state.detailedQuest.quest);
 
   const dispatch = useAppDispatch();
 
@@ -28,7 +27,7 @@ const QuestPage = () => {
           <div className={styles.quest__image}>
             <picture>
               <source type='image/webp' srcSet={coverImgWebp} />
-              <img src={coverImg} width={1366} alt={`картинка квеста ${title}`} />
+              <img src={coverImg} alt={`картинка квеста ${title}`} />
             </picture>
           </div>
           <div className={styles.quest__info}>
@@ -45,7 +44,7 @@ const QuestPage = () => {
                 </li>
                 <li>
                   <img src="/svg/puzzle.svg" width={24} height={16} alt="иконка персона" />
-                  <span></span>
+                  <span>{getQuestLevelNames(level)}</span>
                 </li>
               </ul>
               <p className={styles.quest__description}>{description}</p>
