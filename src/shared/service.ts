@@ -1,4 +1,4 @@
-import { QuestTypeNames } from './types/app-types';
+import { QuestLevelNames, QuestTypeNames } from './types/app-types';
 
 export const getQuestTypeNames = (param : QuestTypeNames) => {
   let questName = '';
@@ -21,4 +21,20 @@ export const getQuestTypeNames = (param : QuestTypeNames) => {
   }
 
   return questName;
+};
+
+export const getQuestLevelNames = (param: QuestLevelNames) => {
+  let levelName = '';
+  switch (param) {
+    case QuestLevelNames.Easy:
+      levelName = 'лёгкий';
+      break;
+    case QuestLevelNames.Hard:
+      levelName = 'тяжёлый';
+      break;
+    case QuestLevelNames.Medium:
+      levelName = 'средний';
+      break;
+  }
+  return levelName;
 };
