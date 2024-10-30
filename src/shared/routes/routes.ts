@@ -9,5 +9,6 @@ export enum AppRoutes {
 }
 
 export enum FetchRoutes {
-  Catalog = '/quest'
+  Catalog = '/quest',
+  Login = '/login'
 }
