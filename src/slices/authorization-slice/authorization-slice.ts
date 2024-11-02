@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { checkUserAuthData, setUserAuthorization } from 'src/app/actions/api-actions';
+import { checkUserAuthData, removeUserAuthorization, setUserAuthorization } from 'src/app/actions/api-actions';
 import { AuthStatus } from 'src/shared/types/app-types';
 
 
@@ -48,6 +48,12 @@ const authorizationSlice = createSlice({
       })
 
       .addCase(setUserAuthorization.rejected, (state) => {
+        state.authStatus = AuthStatus.NoAuth;
+        state.user.email = '';
+        state.user.token = '';
+      })
+
+      .addCase(removeUserAuthorization.fulfilled, (state) => {
         state.authStatus = AuthStatus.NoAuth;
         state.user.email = '';
         state.user.token = '';

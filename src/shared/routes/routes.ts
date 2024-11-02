@@ -10,5 +10,6 @@ export enum AppRoutes {
 
 export enum FetchRoutes {
   Catalog = '/quest',
-  Login = '/login'
+  Login = '/login',
+  Logout = '/logout',
 }

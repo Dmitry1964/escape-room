@@ -3,7 +3,7 @@ import {AxiosInstance} from 'axios';
 import { TQuest, TDetailQuest, TUserAuthData, TUserFetchData } from '../../shared/types/app-types';
 import { FetchRoutes } from '../../shared/routes/routes';
 import { ApiActions } from 'src/shared/constans';
-import { setToken } from 'src/shared/token';
+import { dropToken, setToken } from 'src/shared/token';
 
 
 export const fetchQuestsList = createAsyncThunk<TQuest[], void, {extra: AxiosInstance}>(ApiActions.DataFetchQuestsList, async(_arg, {extra: api}) => {
@@ -26,4 +26,7 @@ export const setUserAuthorization = createAsyncThunk<TUserAuthData, TUserFetchDa
   setToken(data.token);
   return data;
 });
-
+export const removeUserAuthorization = createAsyncThunk<void, undefined, {extra: AxiosInstance}>(ApiActions.RemoveUserAuth, async(_arg, {extra: api}) => {
+  await api.delete(FetchRoutes.Logout);
+  dropToken();
+});

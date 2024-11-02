@@ -5,14 +5,16 @@ import { HeaderNavigation } from 'src/features/header-navigation';
 import Button from 'src/shared/button/button';
 import { AppRoutes } from 'src/shared/routes/routes';
 import cn from 'classnames';
-import { useAppSelector } from 'src/shared/hooks';
+import { useAppDispatch, useAppSelector } from 'src/shared/hooks';
 import { AuthStatus } from 'src/shared/types/app-types';
+import { removeUserAuthorization } from 'src/app/actions/api-actions';
 
 const Layout = () => {
+  const dispatch = useAppDispatch();
   const { pathname } = useLocation();
   const authUserStaus = useAppSelector((state) => state.userAuthStatus.authStatus);
-  const aaas = (evt: React.MouseEvent<HTMLButtonElement>) => {
-    evt.preventDefault();
+  const handleLogoutButton = () => {
+    dispatch(removeUserAuthorization());
   };
 
   return (
@@ -37,7 +39,7 @@ const Layout = () => {
             </Button>}
           {authUserStaus === AuthStatus.Auth &&
             <button
-              onClick={aaas}
+              onClick={handleLogoutButton}
               className={styles.header__button_logout}
             >
               Выйти
