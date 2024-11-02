@@ -8,13 +8,14 @@ type TButtonProps = {
   children: React.ReactNode;
   className?: string;
   page?: AppRoutes;
+  onClick?: (evt: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-const Button = ({ children, className, page }: TButtonProps) => {
+const Button = ({ children, className, page, onClick }: TButtonProps) => {
   const buttonClassName = cn(styles.button, styles[`${className}`]);
 
   return (
-    <Link className={buttonClassName} to={page || '/'}>{children}</Link>
+    <Link onClick={onClick} className={buttonClassName} to={page || '/'}>{children}</Link>
   );
 };
 

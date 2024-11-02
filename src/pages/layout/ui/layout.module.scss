@@ -38,6 +38,26 @@
     }
 }
 
+.header__button_logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: auto;
+  letter-spacing: 0.03em;
+  color: $color-white-default;
+  border-radius: 47px;
+
+  background-color: $color-tangerine;
+  width: 95px;
+  height: 24px;
+  border: none;
+  text-transform: uppercase;
+  justify-self: flex-end;
+
+}
+
 .isActive {
     color: $color-tangerine;
 }

@@ -1,8 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {AxiosInstance} from 'axios';
-import { TQuest, TDetailQuest, TUserAuthData } from '../../shared/types/app-types';
+import { TQuest, TDetailQuest, TUserAuthData, TUserFetchData } from '../../shared/types/app-types';
 import { FetchRoutes } from '../../shared/routes/routes';
 import { ApiActions } from 'src/shared/constans';
+import { setToken } from 'src/shared/token';
 
 
 export const fetchQuestsList = createAsyncThunk<TQuest[], void, {extra: AxiosInstance}>(ApiActions.DataFetchQuestsList, async(_arg, {extra: api}) => {
@@ -19,3 +20,10 @@ export const checkUserAuthData = createAsyncThunk<TUserAuthData, void, {extra: A
   const {data} = await api.get<TUserAuthData>(FetchRoutes.Login);
   return data;
 });
+
+export const setUserAuthorization = createAsyncThunk<TUserAuthData, TUserFetchData, {extra: AxiosInstance}>(ApiActions.SetUserAuth, async(userData, {extra: api}) => {
+  const {data} = await api.post<TUserAuthData>(FetchRoutes.Login, userData);
+  setToken(data.token);
+  return data;
+});
+
