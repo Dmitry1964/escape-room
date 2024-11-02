@@ -3,6 +3,7 @@ export enum ApiActions {
   DataFetchQuest = 'data/fetchQuest',
   CheckUserAuth = 'user/checkStatus',
   SetUserAuth = 'user/setAuthorization',
+  RemoveUserAuth = 'user/removeAuthorization',
 }
 
 export enum FetchStatus {
