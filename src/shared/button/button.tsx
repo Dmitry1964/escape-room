@@ -11,7 +11,7 @@ type TButtonProps = {
 }
 
 const Button = ({ children, className, page }: TButtonProps) => {
-  const buttonClassName = cn(styles.button, styles[`${className}`])
+  const buttonClassName = cn(styles.button, styles[`${className}`]);
 
   return (
     <Link className={buttonClassName} to={page || '/'}>{children}</Link>
