@@ -59,3 +59,8 @@ export type TUserAuthData = {
   email: string;
   token: string;
 }
+
+export type TUserFetchData = {
+  email: string;
+  password: string;
+}
