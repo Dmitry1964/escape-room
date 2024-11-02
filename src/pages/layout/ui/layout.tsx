@@ -14,7 +14,7 @@ const Layout = () => {
   return (
     <div className={styles.page}>
       <Container>
-        <header className={cn(styles.header, {[styles.header__absolute]: pathname !== AppRoutes.Catalog as string})}>
+        <header className={cn(styles.header, { [styles.header__absolute]: pathname !== AppRoutes.Catalog as string })}>
           {pathname === AppRoutes.Catalog as string &&
             <div className={styles.header__logo}>
               <img src="/svg/logo.svg" width={134} height={50} alt="Логотип" />
@@ -26,10 +26,11 @@ const Layout = () => {
               </div>
             </Link>
           )}
-          <HeaderNavigation authStatus = {authUserStaus} />
-          <Button className={'button_login'}>
-            Вход
-          </Button>
+          <HeaderNavigation authStatus={authUserStaus} />
+          {pathname !== AppRoutes.Login as string &&
+            <Button className={'button_login'} page={AppRoutes.Login}>
+              Вход
+            </Button>}
           <div className={styles.header__phone}>
             <a href="">8 (000) 111-11-11</a>
           </div>
