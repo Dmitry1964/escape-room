@@ -1,0 +1,131 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins.scss';
+
+.pagelogin {
+  display: grid;
+  grid-template-columns: 1fr;
+  // padding-top: 130px;
+}
+
+.pagelogin__image {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.pagelogin__info {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+
+  justify-self: flex-end;
+
+  padding-top: 130px;
+  padding-right: 200px;
+}
+
+.pagelogin__info h2 {
+  font-size: 32px;
+  line-height: 120%;
+  font-weight: 800;
+  text-align: center;
+
+  margin: 0 0 51px;
+}
+
+.pagelogin__form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 94px;
+}
+
+.pagelogin__email,
+.pagelogin__password {
+  display: flex;
+  flex-direction: column;
+
+  & label {
+    font-size: 15px;
+    line-height: 150%;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  & input {
+    font-size: 15px;
+    line-height: 150%;
+    font-weight: 500;
+    color: $color-white-default;
+    opacity: 0.64;
+
+
+    width: 400px;
+    height: 53px;
+    padding-left: 23px;
+    border: none;
+    border-radius: 3px;
+    background-color: $color-gainsboro;
+
+    &::placeholder {
+      color: $color-whisper;
+      opacity: 0.64;
+    }
+  }
+
+}
+
+.pagelogin__email {
+  margin-bottom: 42px;
+}
+
+.pagelogin__password {
+  margin-bottom: 64px;
+}
+
+.pagelogin__button {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: $color-white-default;
+
+  width: 219px;
+  height: 47px;
+  background-color: $color-pink-swan;
+
+  border-radius: 50px;
+  align-self: center;
+}
+
+.pagelogin__agreement {
+  display: flex;
+  align-items: flex-start;
+
+  & label {
+    font-size: 14px;
+    line-height: 144%;
+    font-weight: 500;
+    color: $color-whisper;
+    padding-left: 50px;
+
+    position: relative;
+
+    &::before {
+      content: url(svg/icon_check.svg);
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      top: 5px;
+      left: 0;
+      background-color: $color-tangerine;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+   input {
+    @include visually-hidden
+  }
+}
