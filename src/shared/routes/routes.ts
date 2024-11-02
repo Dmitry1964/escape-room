@@ -5,7 +5,7 @@ export enum AppRoutes {
     Reservation = '/reservation',
     Login = '/login',
     Logout = '/logout',
-    Contacts = 'Контакты',
+    Contacts = '/contacts',
 }
 
 export enum FetchRoutes {
