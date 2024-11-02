@@ -4,6 +4,7 @@ import { Layout } from '../pages/layout';
 import { Catalog } from 'src/pages/catalog';
 import { QuestPage } from 'src/pages/quest-page';
 import { AuthorizationPage } from 'src/pages/authorization-page';
+import { ContactsPage } from 'src/pages/contacts-page';
 
 
 const App = (): JSX.Element => {
@@ -26,6 +27,11 @@ const App = (): JSX.Element => {
         {
           path: AppRoutes.Login,
           element: <AuthorizationPage />
+        },
+
+        {
+          path: AppRoutes.Contacts,
+          element: <ContactsPage />
         }
       ]
     }
