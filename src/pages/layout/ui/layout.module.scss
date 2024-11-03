@@ -8,6 +8,10 @@
     align-items: center;
     padding-top: 24px;
     padding-bottom: 24px;
+    position: absolute;
+    top: 0;
+    width: 1300px;
+
 
     @include desktop-medium {
       grid-template-columns: 134px 55% 17.85% 16.65%;
@@ -16,9 +20,7 @@
 }
 
 .header__absolute {
-  position: absolute;
-  top: 0;
-  width: 1300px;
+  position: static;
 }
 
 .header__phone {

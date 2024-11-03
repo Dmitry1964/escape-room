@@ -20,7 +20,7 @@ const Layout = () => {
   return (
     <div className={styles.page}>
       <Container>
-        <header className={cn(styles.header, { [styles.header__absolute]: pathname.includes(AppRoutes.Quest)}, {[styles.header__absolute]: pathname.includes(AppRoutes.Login)})}>
+        <header className={cn(styles.header, { [styles.header__absolute]: pathname === AppRoutes.Catalog as string})}>
           {pathname === AppRoutes.Catalog as string &&
             <div className={styles.header__logo}>
               <img src="/svg/logo.svg" width={134} height={50} alt="Логотип" />

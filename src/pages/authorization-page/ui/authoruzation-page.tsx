@@ -38,7 +38,6 @@ const AuthorizationPage = (): JSX.Element => {
               <source type='image/webp' srcSet='content/login-bg.webp' />
               <img src='content/login-bg.jpg' width={1366} alt='картинка квеста' />
             </picture>
-
           </div>
           <div className={styles.pagelogin__info}>
             <h2>Вход</h2>
