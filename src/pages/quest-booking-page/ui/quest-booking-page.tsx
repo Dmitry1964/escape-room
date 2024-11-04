@@ -32,8 +32,10 @@ const QuestBookingPage = (): JSX.Element => {
   }, [dispatch, questId]);
 
   useEffect(() => {
-    setCurrentBooking(bookingInfoList[0]);
-    setActiveMarkerId(bookingInfoList[0].id);
+    if (bookingInfoList.length) {
+      setCurrentBooking(bookingInfoList[0]);
+      setActiveMarkerId(bookingInfoList[0].id);
+    }
   }, [bookingInfoList]);
 
   return (
@@ -76,7 +78,7 @@ const QuestBookingPage = (): JSX.Element => {
                 <div className={styles.booking__slots}>
                   {today.length &&
                     today.map((item) => (
-                      <TimeSlot key={item.time} slot={item} dayEvent='today'/>
+                      <TimeSlot key={item.time} slot={item} dayEvent='today' />
                     ))}
                 </div>
                 <span>завтра</span>
