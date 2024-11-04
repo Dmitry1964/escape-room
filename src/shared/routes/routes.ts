@@ -12,4 +12,5 @@ export enum FetchRoutes {
   Catalog = '/quest',
   Login = '/login',
   Logout = '/logout',
+  Booking = '/booking',
 }

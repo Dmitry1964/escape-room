@@ -2,15 +2,10 @@ import Container from 'src/shared/container/container';
 import styles from './contacts-page.module.scss';
 import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
+import { defaultIcon } from 'src/shared/constans';
 
 const ContactsPage = (): JSX.Element => {
   const position: [number, number] = [59.968151, 30.315904];
-  const myIcon = L.icon({
-    iconUrl: 'svg/marker.svg',
-    iconSize: [23, 42],
-    iconAnchor: [12, 42],
-  });
   return (
     <main>
       <Container>
@@ -45,7 +40,7 @@ const ContactsPage = (): JSX.Element => {
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   />
-                  <Marker position={position} icon={myIcon}>
+                  <Marker position={position} icon={defaultIcon}>
                     <Popup>
                       наб. Реки Карповки, 5
                     </Popup>

@@ -1,0 +1,24 @@
+
+.booking {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.booking__image,
+.booking__wrapper {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.booking__wrapper {
+  padding-top: 111px;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+.booking__slots {
+  display: flex;
+  justify-content: space-between;
+}

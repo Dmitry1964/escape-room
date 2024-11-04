@@ -1,0 +1,46 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables.scss';
+
+
+.time_slot {
+  width: 110px;
+}
+
+.time_slot__label {
+    font-size: 16px;
+    line-height: 144%;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 65px;
+    height: 38px;
+
+    cursor: pointer;
+ }
+
+.input__field {
+  @include visually-hidden;
+}
+
+.input__field:checked ~ span {
+  background: $color-timeslot;
+  border: none;
+}
+
+.input__field[disabled] ~ span {
+  background: transparent;
+  border: 2px solid $color-silver;
+  opacity: 0.5;
+}
+
+.time_slot__label.isActive {
+  border: 2px solid $color-white-default;
+  opacity: 1;
+}
+
+.time_slot__label.notActive {
+  background: transparent;
+}

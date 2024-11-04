@@ -5,6 +5,7 @@ import { Catalog } from 'src/pages/catalog';
 import { QuestPage } from 'src/pages/quest-page';
 import { AuthorizationPage } from 'src/pages/authorization-page';
 import { ContactsPage } from 'src/pages/contacts-page';
+import QuestBookingPage from 'src/pages/quest-booking-page/ui/quest-booking-page';
 
 
 const App = (): JSX.Element => {
@@ -32,6 +33,11 @@ const App = (): JSX.Element => {
         {
           path: AppRoutes.Contacts,
           element: <ContactsPage />
+        },
+
+        {
+          path: AppRoutes.Booking,
+          element: <QuestBookingPage />
         }
       ]
     }
