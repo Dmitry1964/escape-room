@@ -64,3 +64,45 @@ export type TUserFetchData = {
   email: string;
   password: string;
 }
+
+export type TEventTime = {
+  time: string;
+  isAvailable: boolean;
+}
+
+export type TBookingQuestInfo = {
+  id: string;
+  location: {
+    address: string;
+    coords: [number, number];
+  };
+  slots: {
+    today: TEventTime[];
+    tomorrow: TEventTime[];
+  };
+}
+
+export type TBookingQuestData = {
+  date: 'today' | 'tomorrow';
+  time: string;
+  contastPerson: string;
+  phone: string;
+  withChildren: boolean;
+  peopleCount: number;
+  placeId: string;
+}
+
+export type TBookingUsersInfo = {
+  date: 'today' | 'tomorrow';
+  time: string;
+  contastPerson: string;
+  phone: string;
+  withChildren: boolean;
+  peopleCount: number;
+  id: string;
+  location: {
+    address: string;
+    coords: [number, number];
+  };
+  quest: TQuest;
+}

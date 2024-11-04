@@ -7,10 +7,13 @@ import Container from 'src/shared/container/container';
 import { useAppDispatch, useAppSelector } from 'src/shared/hooks';
 import { questsType } from 'src/shared/constans';
 import { getQuestTypeNames, getQuestLevelNames } from 'src/shared/service';
+import { AuthStatus } from 'src/shared/types/app-types';
+import { AppRoutes } from 'src/shared/routes/routes';
 
 const QuestPage = () => {
   const { questId } = useParams();
   const { title, coverImgWebp, coverImg, type, peopleMinMax, description, level } = useAppSelector((state) => state.detailedQuest.quest);
+  const authStatus = useAppSelector((state) => state.userAuthStatus.authStatus);
 
   const dispatch = useAppDispatch();
 
@@ -48,7 +51,10 @@ const QuestPage = () => {
                 </li>
               </ul>
               <p className={styles.quest__description}>{description}</p>
-              <Link className={styles.quest__link} to='#'>Забронировать</Link>
+              {authStatus === AuthStatus.NoAuth &&
+                <Link className={styles.quest__link} to={AppRoutes.Login}>Забронировать</Link>}
+              {authStatus === AuthStatus.Auth &&
+                <Link className={styles.quest__link} to={AppRoutes.Booking}>Забронировать</Link>}
             </div>
           </div>
         </section>

@@ -1,16 +1,19 @@
+import L from "leaflet";
+
 export enum ApiActions {
   DataFetchQuestsList = 'data/fetchQuestsList',
   DataFetchQuest = 'data/fetchQuest',
   CheckUserAuth = 'user/checkStatus',
   SetUserAuth = 'user/setAuthorization',
   RemoveUserAuth = 'user/removeAuthorization',
+  InfoFetchBookingQuest = 'info/fetchBookingQuest',
 }
 
 export enum FetchStatus {
   Idle = 'idle',
   Pending = 'loading',
   Fulfilled = 'succes',
-  Rejected = 'error'
+  Rejected = 'error',
 }
 
 export enum FilterTypeNames {
@@ -36,3 +39,14 @@ export const questLevel = {
   'easy': 'легкий',
 };
 
+export const defaultIcon = L.icon({
+  iconUrl: 'svg/marker.svg',
+  iconSize: [23, 42],
+  iconAnchor: [12, 42],
+});
+
+export const activeIcon = L.icon({
+  iconUrl: 'svg/activeMarker.svg',
+  iconSize: [23, 42],
+  iconAnchor: [12, 42],
+});
