@@ -33,8 +33,8 @@ const QuestBookingPage = (): JSX.Element => {
 
   useEffect(() => {
     if (bookingInfoList.length) {
-      setCurrentBooking(bookingInfoList[0]);
-      setActiveMarkerId(bookingInfoList[0].id);
+      setCurrentBooking(bookingInfoList[1]);
+      setActiveMarkerId(bookingInfoList[1].id);
     }
   }, [bookingInfoList]);
 
@@ -73,27 +73,46 @@ const QuestBookingPage = (): JSX.Element => {
             </div>
             {currentBooking &&
               <div className={styles.booking__info}>
-                <p>{currentBooking.location.address}</p>
-                <span>сегодня</span>
+                <p>{`Вы выбрали: ${currentBooking.location.address}`}</p>
+                <span className={styles.booking__day_event}>сегодня</span>
                 <div className={styles.booking__slots}>
                   {today.length &&
                     today.map((item) => (
                       <TimeSlot key={item.time} slot={item} dayEvent='today' />
                     ))}
                 </div>
-                <span>завтра</span>
+                <span className={styles.booking__day_event}>завтра</span>
                 <div className={styles.booking__slots}>
                   {tomorrow.length &&
                     tomorrow.map((item) => (
                       <TimeSlot key={item.time} slot={item} dayEvent='tomorrow' />
                     ))}
                 </div>
-
               </div>}
+            <form className={styles.booking__form}>
+              <label htmlFor="user-name">Ваше Имя</label>
+              <input type="text" name="user-name" id="user-name" placeholder='Имя' />
+              <label htmlFor="user-phone">Контактный телефон</label>
+              <input type="text" name='user-phone' id='user-phone' placeholder='Телефон' />
+              <label htmlFor="users-numbers">Количество участников</label>
+              <input type="text" name="users-numbers" id="users-numbers" placeholder='Количество участников' />
+              <div className={styles.booking__children}>
+                <input type="checkbox" name="children" id="children" />
+                <label htmlFor="children">Со мной будут дети</label>
+              </div>
+              <input type="submit" value='Забронировать' />
+              <div className={styles.booking__agreement}>
+                <input type="checkbox" name='agreement' id='agreement' readOnly checked />
+                <label htmlFor='agreement'>Я согласен с правилами обработки персональных данных и пользовательским соглашением</label>
+              </div>
+
+            </form>
           </div>
         </section>
       </Container>
     </main>
   );
 };
+
+// ^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$
 export default QuestBookingPage;
