@@ -4,19 +4,20 @@ import cn from 'classnames';
 
 type TimeSlotProps = {
   slot: TEventTime;
-  dayEvent: string;
+  dayEvent: 'today' | 'tomorrow';
+  onTimeSlotClick: (evt: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const TimeSlot = ({ slot, dayEvent }: TimeSlotProps): JSX.Element => {
+const TimeSlot = ({ slot, dayEvent, onTimeSlotClick }: TimeSlotProps): JSX.Element => {
   const { time, isAvailable } = slot;
   return (
     <div className={styles.time_slot}>
       <label>
         {isAvailable
           ?
-          <input className={styles.input__field} type="radio" name={dayEvent} />
+          <input onChange={onTimeSlotClick} className={styles.input__field} type="radio" name='day-event' value={dayEvent} />
           :
-          <input className={cn(styles.input__field, styles.notActive)} type="radio" name={dayEvent} disabled />}
+          <input onChange={onTimeSlotClick} className={cn(styles.input__field, styles.notActive)} type="radio" name='day-event' value={dayEvent} disabled />}
         <span className={cn(styles.time_slot__label, { [styles.isActive]: isAvailable })}>{time}</span>
       </label>
     </div>
