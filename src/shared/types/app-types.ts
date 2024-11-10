@@ -85,7 +85,7 @@ export type TBookingQuestInfo = {
 export type TBookingQuestData = {
   date: 'today' | 'tomorrow';
   time: string;
-  contastPerson: string;
+  contactPerson: string;
   phone: string;
   withChildren: boolean;
   peopleCount: number;
