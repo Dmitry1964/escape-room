@@ -8,16 +8,6 @@ export type TQuest = {
   peopleMinMax: number[];
 }
 
-// export type TReservationQuest = {
-//   id: string;
-//   title: string;
-//   previewImg: string;
-//   previewImgWebp: string;
-//   level: QuestLevelNames;
-//   type: QuestTypeNames;
-//   peopleMinMax: [number];
-// }
-
 export type TDetailQuest = TQuest & {
   description: string;
   coverImg: string;
@@ -116,18 +106,3 @@ export type TBookingUsersInfo = {
   };
   quest: TQuest;
 }
-
-// export type TReservationQuestInfo = {
-//   date: 'today' | 'tomorrow';
-//   time: string;
-//   contastPerson: string;
-//   phone: string;
-//   withChildren: boolean;
-//   peopleCount: number;
-//   id: string;
-//   location: {
-//     address: string;
-//     coords: [number, number];
-//   };
-//   quest: TReservationQuest;
-// };
