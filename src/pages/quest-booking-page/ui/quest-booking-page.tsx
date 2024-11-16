@@ -2,7 +2,7 @@ import Container from 'src/shared/container/container';
 import styles from './quest-booking.module.scss';
 import { useAppDispatch, useAppSelector } from 'src/shared/hooks';
 import { useEffect, useState } from 'react';
-import { fetchBookingInfo } from 'src/app/actions/api-actions';
+import { fetchBookingInfo, setBookQuest } from 'src/app/actions/api-actions';
 import TimeSlot from 'src/shared/time-slot/time-slot';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import { LatLngExpression } from 'leaflet';
@@ -94,8 +94,14 @@ const QuestBookingPage = (): JSX.Element => {
   };
 
   const handleCheckbox = () => {
-    // setBookingData((prevBookingData) => ({...bookingData, withChildren: !prevBookingData.withChildren}));
-    setBookingData({...bookingData, withChildren: !bookingData.withChildren});
+    setBookingData({ ...bookingData, withChildren: !bookingData.withChildren });
+  };
+
+  const handleFormSubmit = (evt: React.FocusEvent<HTMLFormElement>) => {
+    evt.preventDefault();
+    if (activeMarkerId && bookingData) {
+      dispatch(setBookQuest({questId: questId, bookingData: bookingData}));
+    }
   };
 
   const today = currentBooking ? currentBooking.slots.today : [];
@@ -168,6 +174,7 @@ const QuestBookingPage = (): JSX.Element => {
                 </div>
               </div>}
             <form
+              onSubmit={handleFormSubmit}
               className={styles.booking__form}
             >
               <div className={styles.booking__fields}>
