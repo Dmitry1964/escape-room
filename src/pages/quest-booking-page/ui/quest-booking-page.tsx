@@ -2,7 +2,7 @@ import Container from 'src/shared/container/container';
 import styles from './quest-booking.module.scss';
 import { useAppDispatch, useAppSelector } from 'src/shared/hooks';
 import { useEffect, useState } from 'react';
-import { fetchBookingInfo, setBookQuest } from 'src/app/actions/api-actions';
+import { fetchBookingInfo, fetchReservationList, setBookQuest } from 'src/app/actions/api-actions';
 import TimeSlot from 'src/shared/time-slot/time-slot';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import { LatLngExpression } from 'leaflet';
@@ -101,6 +101,7 @@ const QuestBookingPage = (): JSX.Element => {
     evt.preventDefault();
     if (activeMarkerId && bookingData) {
       dispatch(setBookQuest({questId: questId, bookingData: bookingData}));
+      dispatch(fetchReservationList());
     }
   };
 

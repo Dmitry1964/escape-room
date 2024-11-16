@@ -41,3 +41,8 @@ export const setBookQuest = createAsyncThunk<TBookingUsersInfo, { questId: strin
   const {data} = await api.post<TBookingUsersInfo>(`${FetchRoutes.Catalog}/${questId}${FetchRoutes.Booking}`, bookingData);
   return data;
 });
+
+export const fetchReservationList = createAsyncThunk<TBookingUsersInfo[], void, {extra: AxiosInstance}>(ApiActions.DataReservationList, async(_arg,{extra: api}) => {
+  const {data} = await api.get<TBookingUsersInfo[]>(FetchRoutes.Reservation);
+  return data;
+});

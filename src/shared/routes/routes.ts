@@ -13,4 +13,5 @@ export enum FetchRoutes {
   Login = '/login',
   Logout = '/logout',
   Booking = '/booking',
+  Reservation = '/reservation',
 }

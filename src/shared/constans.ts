@@ -8,6 +8,7 @@ export enum ApiActions {
   RemoveUserAuth = 'user/removeAuthorization',
   InfoFetchBookingQuest = 'info/fetchBookingQuest',
   UserBookQuest = 'user/bookQuest',
+  DataReservationList = 'data/fetchReservationList',
 }
 
 export enum FetchStatus {
