@@ -13,7 +13,7 @@ const initialState: TReservationQuestState = {
   reservationQuest: {
     contastPerson: '',
     date: 'today',
-    bookingId: '',
+    id: '',
     location: {
       address: '',
       coords: [0, 0]
