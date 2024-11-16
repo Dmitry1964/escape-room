@@ -47,8 +47,8 @@ const QuestBookingPage = (): JSX.Element => {
 
   const onMarkerClick = (id: string) => {
     setActiveMarkerId(id);
-    setCurrentBooking(bookingInfoList.find((item) => item.bookingId === id) || null);
-    setBookingData({ ...bookingData, placeId: currentBooking?.bookingId || '' });
+    setCurrentBooking(bookingInfoList.find((item) => item.id === id) || null);
+    setBookingData({ ...bookingData, placeId: currentBooking?.id || '' });
   };
   const getDayEvent = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const dayEvent = evt.target.value as 'today' | 'tomorrow';
@@ -108,7 +108,7 @@ const QuestBookingPage = (): JSX.Element => {
   useEffect(() => {
     if (bookingInfoList.length) {
       setCurrentBooking(bookingInfoList[bookingInfoList.length - 1]);
-      setActiveMarkerId(bookingInfoList[bookingInfoList.length - 1].bookingId);
+      setActiveMarkerId(bookingInfoList[bookingInfoList.length - 1].id);
     }
   }, [bookingInfoList]);
 
@@ -140,10 +140,10 @@ const QuestBookingPage = (): JSX.Element => {
                 {bookingInfoList.length &&
                   bookingInfoList.map((item) => (
                     <Marker
-                      key={item.bookingId}
+                      key={item.id}
                       position={item.location.coords}
-                      eventHandlers={{ click: () => onMarkerClick(item.bookingId) }}
-                      icon={activeMarkerId === item.bookingId ? activeIcon : defaultIcon}
+                      eventHandlers={{ click: () => onMarkerClick(item.id) }}
+                      icon={activeMarkerId === item.id ? activeIcon : defaultIcon}
                     />
                   ))}
               </MapContainer>

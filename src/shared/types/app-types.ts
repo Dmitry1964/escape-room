@@ -81,7 +81,7 @@ export type TEventTime = {
 }
 
 export type TBookingQuestInfo = {
-  bookingId: string;
+  id: string;
   location: {
     address: string;
     coords: [number, number];
@@ -109,7 +109,7 @@ export type TBookingUsersInfo = {
   phone: string;
   withChildren: boolean;
   peopleCount: number;
-  bookingId: string;
+  id: string;
   location: {
     address: string;
     coords: [number, number];
