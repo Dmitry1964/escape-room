@@ -15,9 +15,21 @@ const TimeSlot = ({ slot, dayEvent, onTimeSlotClick }: TimeSlotProps): JSX.Eleme
       <label>
         {isAvailable
           ?
-          <input onChange={onTimeSlotClick} className={styles.input__field} type="radio" name='day-event' value={dayEvent} />
+          <input
+            onChange={onTimeSlotClick}
+            className={styles.input__field}
+            type="radio" name='day-event'
+            value={dayEvent}
+            data-time={time}
+          />
           :
-          <input onChange={onTimeSlotClick} className={cn(styles.input__field, styles.notActive)} type="radio" name='day-event' value={dayEvent} disabled />}
+          <input
+            onChange={onTimeSlotClick}
+            className={cn(styles.input__field, styles.notActive)}
+            type="radio" name='day-event' value={dayEvent}
+            data-time={time}
+            disabled
+          />}
         <span className={cn(styles.time_slot__label, { [styles.isActive]: isAvailable })}>{time}</span>
       </label>
     </div>
