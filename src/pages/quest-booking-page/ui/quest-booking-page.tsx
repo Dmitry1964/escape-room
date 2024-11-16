@@ -41,9 +41,6 @@ const QuestBookingPage = (): JSX.Element => {
     phone: true,
   });
 
-  // console.log(watch('example'));
-
-
   const dispatch = useAppDispatch();
   const questId = useAppSelector((state) => state.detailedQuest.quest.id);
   const bookingInfoList = useAppSelector((state) => state.bookingQuestInfo.bookingInfo);
@@ -55,7 +52,8 @@ const QuestBookingPage = (): JSX.Element => {
   };
   const getDayEvent = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const dayEvent = evt.target.value as 'today' | 'tomorrow';
-    setBookingData({ ...bookingData, date: dayEvent });
+    const timeEvent = evt.target.getAttribute('data-time') as string;
+    setBookingData({ ...bookingData, date: dayEvent, time: timeEvent });
   };
 
   const handleUserNumbers = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -95,6 +93,10 @@ const QuestBookingPage = (): JSX.Element => {
     }
   };
 
+  const handleCheckbox = () => {
+    // setBookingData((prevBookingData) => ({...bookingData, withChildren: !prevBookingData.withChildren}));
+    setBookingData({...bookingData, withChildren: !bookingData.withChildren});
+  };
 
   const today = currentBooking ? currentBooking.slots.today : [];
   const tomorrow = currentBooking ? currentBooking.slots.tomorrow : [];
@@ -107,9 +109,12 @@ const QuestBookingPage = (): JSX.Element => {
     if (bookingInfoList.length) {
       setCurrentBooking(bookingInfoList[bookingInfoList.length - 1]);
       setActiveMarkerId(bookingInfoList[bookingInfoList.length - 1].id);
-      setBookingData({ ...bookingData, placeId: activeMarkerId ? activeMarkerId : '' });
     }
-  }, [bookingInfoList, activeMarkerId, bookingData]);
+  }, [bookingInfoList]);
+
+  useEffect(() => {
+    setBookingData((prevBookingData) => ({ ...prevBookingData, placeId: activeMarkerId ? activeMarkerId : '' }));
+  }, [activeMarkerId]);
 
   return (
     <main>
@@ -127,7 +132,7 @@ const QuestBookingPage = (): JSX.Element => {
               <h2>МАНЬЯК</h2>
             </div>
             <div className={styles.booking__map}>
-              <MapContainer style={{ height: '530px', width: '890px' }} center={CENTER} zoom={11} scrollWheelZoom={false}>
+              <MapContainer style={{ height: '530px', width: '890px' }} center={CENTER} zoom={10} scrollWheelZoom={false}>
                 <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -206,7 +211,7 @@ const QuestBookingPage = (): JSX.Element => {
                   <p className={styles.booking__error_message}>Количество участников в данном квесте должно составлять от {minMaxPeople[0]} до {minMaxPeople[1]} человек</p>}
               </div>
               <div className={styles.booking__children}>
-                <input type="checkbox" name="children" id="children" />
+                <input onChange={handleCheckbox} type="checkbox" name="children" id="children" />
                 <label htmlFor="children">Со мной будут дети</label>
               </div>
               <input type="submit" value='Забронировать' />
