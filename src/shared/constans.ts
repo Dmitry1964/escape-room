@@ -1,4 +1,4 @@
-import L from "leaflet";
+import L from 'leaflet';
 
 export enum ApiActions {
   DataFetchQuestsList = 'data/fetchQuestsList',
@@ -7,6 +7,7 @@ export enum ApiActions {
   SetUserAuth = 'user/setAuthorization',
   RemoveUserAuth = 'user/removeAuthorization',
   InfoFetchBookingQuest = 'info/fetchBookingQuest',
+  UserBookQuest = 'user/bookQuest',
 }
 
 export enum FetchStatus {
