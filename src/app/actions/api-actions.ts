@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {AxiosInstance} from 'axios';
-import { TQuest, TDetailQuest, TUserAuthData, TUserFetchData, TBookingQuestInfo } from '../../shared/types/app-types';
+import { TQuest, TDetailQuest, TUserAuthData, TUserFetchData, TBookingQuestInfo, TBookingUsersInfo } from '../../shared/types/app-types';
 import { FetchRoutes } from '../../shared/routes/routes';
 import { ApiActions } from 'src/shared/constans';
 import { dropToken, setToken } from 'src/shared/token';
@@ -34,5 +34,10 @@ export const removeUserAuthorization = createAsyncThunk<void, undefined, {extra:
 
 export const fetchBookingInfo = createAsyncThunk<TBookingQuestInfo[], string, {extra: AxiosInstance}>(ApiActions.InfoFetchBookingQuest, async(questId, {extra:api}) => {
   const {data} = await api.get<TBookingQuestInfo[]>(`${FetchRoutes.Catalog}/${questId}${FetchRoutes.Booking}`);
+  return data;
+});
+
+export const setBookQuest = createAsyncThunk<TBookingUsersInfo, { questId: string; questData: TBookingUsersInfo }, {extra: AxiosInstance}>(ApiActions.UserBookQuest, async({ questId, questData }, {extra: api}) => {
+  const {data} = await api.post<TBookingUsersInfo>(`${FetchRoutes.Catalog}/${questId}${FetchRoutes.Booking}`, questData);
   return data;
 });
