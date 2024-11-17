@@ -1,5 +1,6 @@
 import { TBookingUsersInfo } from 'src/shared/types/app-types';
 import styles from './reservation-card.module.scss';
+import { getQuestLevelNames, getQuestDateName} from 'src/shared/service';
 
 type TReservationQuestProps = {
   questCard: TBookingUsersInfo;
@@ -22,7 +23,7 @@ const ReservationQuestCard = ({ questCard }: TReservationQuestProps): JSX.Elemen
         </div>
         <div className={styles.reservation_card__info}>
           <h3>{title}</h3>
-          <span>{`${date} ${time} ${location.address}`}</span>
+          <span>{`${getQuestDateName(date)} ${time} ${location.address}`}</span>
           <div className={styles.reservation_card__content}>
             <ul>
               <li>
@@ -32,7 +33,7 @@ const ReservationQuestCard = ({ questCard }: TReservationQuestProps): JSX.Elemen
               </li>
               <li>
                 <img src="svg/puzzle.svg" width={16} height={16} alt="иконка персона" />
-                <span>{level}</span>
+                <span>{getQuestLevelNames(level)}</span>
               </li>
             </ul>
             <button className={styles.reservation_card__button}>Отменить</button>

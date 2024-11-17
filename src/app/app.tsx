@@ -6,9 +6,14 @@ import { QuestPage } from 'src/pages/quest-page';
 import { AuthorizationPage } from 'src/pages/authorization-page';
 import { ContactsPage } from 'src/pages/contacts-page';
 import QuestBookingPage from 'src/pages/quest-booking-page/ui/quest-booking-page';
+import { ReservationQuestPage } from 'src/pages/reservation-quests-page';
+import { useAppSelector } from 'src/shared/hooks';
+import PrivateRoute from './private-route/private-route';
 
 
 const App = (): JSX.Element => {
+
+  const authStatus = useAppSelector((state) => state.userAuthStatus.authStatus);
 
   const router = createBrowserRouter([
     {
@@ -22,7 +27,7 @@ const App = (): JSX.Element => {
 
         {
           path: `${AppRoutes.Quest}/:questId`,
-          element: <QuestPage/>
+          element: <QuestPage />
         },
 
         {
@@ -38,6 +43,14 @@ const App = (): JSX.Element => {
         {
           path: AppRoutes.Booking,
           element: <QuestBookingPage />
+        },
+
+        {
+          path: AppRoutes.Reservation,
+          element:
+          <PrivateRoute authStatus={authStatus}>
+            <ReservationQuestPage/>
+          </PrivateRoute>
         }
       ]
     }
