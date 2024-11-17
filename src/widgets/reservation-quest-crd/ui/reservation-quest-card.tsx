@@ -1,15 +1,16 @@
 import { TBookingUsersInfo } from 'src/shared/types/app-types';
 import styles from './reservation-card.module.scss';
-import { getQuestLevelNames, getQuestDateName} from 'src/shared/service';
+import { getQuestLevelNames, getQuestDateName } from 'src/shared/service';
 
 type TReservationQuestProps = {
   questCard: TBookingUsersInfo;
+  removeQuest: (id: string) => void;
 }
 
 
-const ReservationQuestCard = ({ questCard }: TReservationQuestProps): JSX.Element => {
+const ReservationQuestCard = ({ questCard, removeQuest }: TReservationQuestProps): JSX.Element => {
 
-  const { quest, date, time, location, peopleCount } = questCard;
+  const { quest, date, time, location, peopleCount, id } = questCard;
   const { previewImg, previewImgWebp, title, level } = quest;
 
   return (
@@ -36,7 +37,11 @@ const ReservationQuestCard = ({ questCard }: TReservationQuestProps): JSX.Elemen
                 <span>{getQuestLevelNames(level)}</span>
               </li>
             </ul>
-            <button className={styles.reservation_card__button}>Отменить</button>
+            <button
+              onClick={() => removeQuest(id)}
+              className={styles.reservation_card__button}
+            >Отменить
+            </button>
           </div>
         </div>
       </div>

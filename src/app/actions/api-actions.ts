@@ -46,3 +46,7 @@ export const fetchReservationList = createAsyncThunk<TBookingUsersInfo[], void, 
   const {data} = await api.get<TBookingUsersInfo[]>(FetchRoutes.Reservation);
   return data;
 });
+
+export const removeReservationQuest = createAsyncThunk<void, string, {extra: AxiosInstance}>(ApiActions.RemoveReservationQuest, async(reservationId, {extra: api}) => {
+  await api.delete(`${FetchRoutes.Reservation}/${reservationId}`);
+});
