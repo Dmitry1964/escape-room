@@ -9,6 +9,7 @@ export enum ApiActions {
   InfoFetchBookingQuest = 'info/fetchBookingQuest',
   UserBookQuest = 'user/bookQuest',
   DataReservationList = 'data/fetchReservationList',
+  RemoveReservationQuest = 'quest/deleteReservation',
 }
 
 export enum FetchStatus {

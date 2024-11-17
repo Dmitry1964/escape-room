@@ -1,7 +1,7 @@
 import Container from 'src/shared/container/container';
 import styles from './reservation-quest.module.scss';
 import { useEffect } from 'react';
-import { fetchReservationList } from 'src/app/actions/api-actions';
+import { fetchReservationList, removeReservationQuest } from 'src/app/actions/api-actions';
 import { useAppDispatch, useAppSelector } from 'src/shared/hooks';
 import { ReservationQuestCard } from 'src/widgets/reservation-quest-crd';
 
@@ -10,6 +10,13 @@ const ReservationQuestPage = (): JSX.Element => {
 
   const dispatch = useAppDispatch();
   const reservationList = useAppSelector((state) => state.reservationList.reservationList);
+
+  const handleRemoveButton = (reservationId: string) => {
+    dispatch(removeReservationQuest(reservationId)).unwrap()
+      .then(() => {
+        dispatch(fetchReservationList());
+      });
+  };
 
   useEffect(() => {
     dispatch(fetchReservationList());
@@ -32,7 +39,11 @@ const ReservationQuestPage = (): JSX.Element => {
               <div className={styles.reservation__list}>
                 {reservationList.length &&
                   reservationList.map((item) => (
-                    <ReservationQuestCard key={item.id} questCard={item} />
+                    <ReservationQuestCard
+                      key={item.id}
+                      questCard={item}
+                      removeQuest={handleRemoveButton}
+                    />
                   ))}
               </div>
               {reservationList.length === 0 &&
