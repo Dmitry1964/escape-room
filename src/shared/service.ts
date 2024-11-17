@@ -38,3 +38,16 @@ export const getQuestLevelNames = (param: QuestLevelNames) => {
   }
   return levelName;
 };
+
+export const getQuestDateName = (param: 'today' | 'tomorrow') => {
+  let dateName = '';
+  switch (param) {
+    case 'today':
+      dateName = 'сегодня';
+      break;
+    case 'tomorrow':
+      dateName = 'завтра';
+      break;
+  }
+  return dateName;
+};

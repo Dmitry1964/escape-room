@@ -21,7 +21,7 @@ const HeaderNavigation = ({ authStatus }: THeaderNaigationProps): JSX.Element =>
       </li>
       {authStatus === AuthStatus.Auth &&
         <li className={styles.item}>
-          <Link className={cn(styles.header__link, { [styles.active]: location.pathname === AppRoutes.Booking as string })} to={AppRoutes.Quest}>Мои бронирования</Link>
+          <Link className={cn(styles.header__link, { [styles.active]: location.pathname === AppRoutes.Reservation as string })} to={AppRoutes.Reservation}>Мои бронирования</Link>
         </li>}
     </ul>
   );

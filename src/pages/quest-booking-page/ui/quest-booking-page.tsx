@@ -101,7 +101,6 @@ const QuestBookingPage = (): JSX.Element => {
     evt.preventDefault();
     if (activeMarkerId && bookingData) {
       dispatch(setBookQuest({questId: questId, bookingData: bookingData}));
-      dispatch(fetchReservationList());
     }
   };
 
